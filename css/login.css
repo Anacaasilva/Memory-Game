@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root {
+  --font-color: #000000;
+  --button-font:#FFFFFF;
+  --button-color: #EE665C;
+  --primary-color: #8A5F5F;
+  --backgroung-color: #9C9B9B;
+
+  --source: 'Press Start 2P', cursive;
+}
+
+.login_form {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--backgroung-color);
+}
+
+.login_header {
+  display: flex;
+  margin-top: 50px;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login_header img {
+  width: 300px;
+}
+
+.title {
+  font-size: 1.5em;
+  color: var(--font-color);
+  font-family: var(--source);
+}
+
+.login_input {
+  width: 100%;
+  padding: 15px;
+  color: #333;
+  font-size: 1em;
+  margin: 20px 0;
+  max-width: 300px;
+  border-radius: 5px;
+  font-family: var(--source);
+  outline: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  background-color: var(--backgroung-color);
+}
+
+.login_button {
+  width: 100%;
+  padding: 15px;
+  font-size: 1em;
+  cursor: pointer;
+  max-width: 335px;
+  border-radius: 5px;
+  color: var(--button-font);
+  font-family: var(--source);
+  background-color: var(--button-color);
+}
+
+.login_button:disabled {
+  cursor: auto;
+  color: var(--button-font);
+  background-color: var(--backgroung-color);
+}
