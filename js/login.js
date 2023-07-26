@@ -16,14 +16,15 @@ const validateInput = ({ target }) => {
 // }
 
 const handleSubmit = (event) => {
+  console.log("executei a func");
   event.preventDefault();
   console.log(input.value);
 
   localStorage.setItem('player', input.value);
-  window.location = 'pages/game.html';
+  window.location = 'game.html';
 
   // localStorage.setItem('player', 'input.value')
 }
 
 input.addEventListener('input', validateInput);
-input.addEventListener('submit', handleSubmit);
+form.addEventListener('submit', handleSubmit);
