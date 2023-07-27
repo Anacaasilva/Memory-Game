@@ -40,13 +40,13 @@
 .login_input {
   width: 100%;
   padding: 15px;
-  color: #333;
+  color: rgba(0, 0, 0, 0.58);
   font-size: 1em;
   margin: 20px 0;
   max-width: 300px;
   border-radius: 5px;
   font-family: var(--source);
-  outline: var(--primary-color);
+  outline: var(--primary-color);  
   border: 2px solid var(--primary-color);
   background-color: var(--backgroung-color);
 }

@@ -7,7 +7,9 @@ const validateInput = ({ target }) => {
     button.removeAttribute('disabled');
     return;
   }
+
   button.setAttribute('disabled', '');
+
 }
 
 // Ter acesso aos dados inseridos no input
@@ -16,14 +18,11 @@ const validateInput = ({ target }) => {
 // }
 
 const handleSubmit = (event) => {
-  console.log("executei a func");
   event.preventDefault();
-  console.log(input.value);
 
   localStorage.setItem('player', input.value);
   window.location = 'game.html';
 
-  // localStorage.setItem('player', 'input.value')
 }
 
 input.addEventListener('input', validateInput);
