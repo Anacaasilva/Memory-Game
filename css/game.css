@@ -12,7 +12,6 @@
   aspect-ratio: 3/4;
   border-radius: 5px;
   position: relative;
-  /* background-color: aqua; */
   transition: all 400ms ease;
   transform-style: preserve-3d;
 }
@@ -23,6 +22,7 @@
   position: absolute;
   border-radius: 5px;
   background-size: cover;
+  transition: all 400ms ease;
   border: 2px solid #39813A;
   background-position: center;
 }
@@ -36,6 +36,11 @@
   backface-visibility: hidden;
 }
 
-.card:hover {
+.reveal-card {
   transform: rotateY(180deg);
+}
+
+.disabled-card {
+  filter: saturate(0);
+  opacity: 0.5;
 }
