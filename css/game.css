@@ -1,9 +1,33 @@
+main {
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  background-size: auto;
+  flex-direction: column;
+  padding: 20px 20px 50px;
+  justify-content: center;
+  background-image: url(../img/wallpaper.svg);
+}
+
+header {
+  width: 100%;
+  padding: 25px;
+  display: flex;
+  margin: 30px 0;
+  max-width: 800px;
+  font-size: 1.2em;
+  border-radius: 5px;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(255, 255, 255, 0.8);
+}
+
 .grid {
   gap: 15px;
   width: 100%;
   display: grid;
-  margin: 100px auto;
   max-width: 800px;
+  margin: 0 auto;
   grid-template-columns: repeat(5, 1fr);
 }
 
@@ -11,6 +35,7 @@
   width: 100%;
   aspect-ratio: 3/4;
   border-radius: 5px;
+  background-color: #ccc;
   position: relative;
   transition: all 400ms ease;
   transform-style: preserve-3d;
@@ -32,8 +57,8 @@
 }
 
 .back {
-  background-image: url(../img/back.svg);
   backface-visibility: hidden;
+  background-image: url(../img/back.svg);
 }
 
 .reveal-card {
@@ -41,6 +66,6 @@
 }
 
 .disabled-card {
-  filter: saturate(0);
   opacity: 0.5;
+  filter: saturate(0);
 }

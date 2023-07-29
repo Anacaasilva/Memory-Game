@@ -1,23 +1,33 @@
 const grid = document.querySelector('.grid');
+const spanPlayer = document.querySelector('.player');
+const timer = document.querySelector('.timer')
 
 const createElement = (tag, className) => {
+
   const element = document.createElement(tag);
   element.className = className;
   return element;
+
 }
 
 let firstCard = '';
 let secondCard = '';
 
 const checkEndGame = () => {
+
   const disabledCards = document.querySelectorAll('.disabled-card');
 
-  if(disabledCards.length == 20) {
-    alert('Parabéns, você conseguiu!')
+  if (disabledCards.length == 20) {
+
+    clearInterval(this.loop);
+    alert(`Parabéns, ${spanPlayer.innerHTML}! Seu tempo foi de ${timer.innerHTML}!`);
+
   }
+
 }
 
 const checkCards = () => {
+
   const firstCharacter = firstCard.getAttribute('data-character');
   const secondCharacter = secondCard.getAttribute('data-character');
 
@@ -25,7 +35,7 @@ const checkCards = () => {
 
     firstCard.firstChild.classList.add('disabled-card');
     secondCard.firstChild.classList.add('disabled-card');
-    
+
     firstCard = '';
     secondCard = '';
 
@@ -41,26 +51,29 @@ const checkCards = () => {
       secondCard = '';
 
     }, 500);
+
   }
+
 }
 
-const revealCard = ({ target }) => {
+const revealCard = ({ target: { parentNode } }) => {
 
-  if (target.parentNode.className.includes('reveal-card')) {
+  if (parentNode.className.includes('reveal-card')) {
     return;
   }
 
   if (firstCard == '') {
 
-    target.parentNode.classList.add('reveal-card');
-    firstCard = target.parentNode;
+    parentNode.classList.add('reveal-card');
+    firstCard = parentNode;
 
   } else if (secondCard == '') {
 
-    target.parentNode.classList.add('reveal-card');
-    secondCard = target.parentNode;
+    parentNode.classList.add('reveal-card');
+    secondCard = parentNode;
 
     checkCards();
+
   }
 
 }
@@ -81,6 +94,7 @@ const createCard = (id) => {
   card.setAttribute('data-character', id);
 
   return card;
+
 }
 
 const loadGame = async () => {
@@ -90,6 +104,7 @@ const loadGame = async () => {
   if (charactersIds == 0) {
     //tratar erro da api
     return console.log("problemas pra pegar os ids da api");
+
   }
 
   const duplicateCharacters = [...charactersIds, ...charactersIds];
@@ -98,10 +113,26 @@ const loadGame = async () => {
 
   //varrendo/mapeando meu array
   shuffledArray.forEach(id => {
+
     const card = createCard(id);
     grid.appendChild(card);
+
   });
 
 }
 
-loadGame();
+const startTime = () => {
+
+  this.loop = setInterval(() => {
+    const currentTime = +timer.innerHTML;
+    timer.innerHTML = currentTime +1;
+  }, 1000);
+
+}
+
+window.onload = () => {
+
+  spanPlayer.innerHTML = localStorage.getItem('player');
+  startTime();
+  loadGame();
+}
