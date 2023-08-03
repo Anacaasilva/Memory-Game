@@ -1,6 +1,6 @@
 <h1 align="center">Memory Game</h1>
 
-Jogo desenvolvido por meio de estudos. 
+Jogo de memória desenvolvido por meio de estudos. 
 Criado com HTML, CSS e JS, realizando uma integração a uma API pública para coleta de imagens.
 <br>
 
